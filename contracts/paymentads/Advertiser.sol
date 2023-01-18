@@ -1,12 +1,12 @@
 pragma solidity ^0.8.4;
 
 import "./BaseContract.sol";
-import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+
 
 contract Advertiser {
     using SafeERC20 for IERC20;
     address advertiser;
-    IERC20 immutable private token;
+    IERC20 private token;
     uint256 amountTotalDeposit;
     address operator;
     
