@@ -11,12 +11,7 @@ contract ManagerContract is BaseContract {
         address viewer;
         uint256 balance;
     }
-
-    // struct Advertiser {
-    //     address Advertiser;
-
-    // }
-
+    
     mapping(address => address) public Advertisers;
     mapping(address => AdViewer) public AdViewers;
     IERC20 private token;
@@ -45,13 +40,6 @@ contract ManagerContract is BaseContract {
 
         uint256 balanceContract = token.balanceOf(address(this));
         require(balanceContract > amount, "not enough balance");
-  //      address viewer = msg.sender;
-        //AdViewer storage adviewer = Advertisers[msg.sender];
-        // address abc = Advertisers[msg.sender].viewer;
-        // if(adviewer.viewer != address(0)) {
-
-        // }
-
         uint256 value = amount.mul(rateSwap);
 
         token.safeTransfer(msg.sender, value);
