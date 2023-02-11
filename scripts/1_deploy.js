@@ -3,7 +3,7 @@ require('@nomiclabs/hardhat-ethers');
 const hre = require('hardhat');
 
 
-const CollectionBuildName = "Collection";
+const CollectionBuildName = "Vesting";
 
 const proxyType = { kind: "uups" };
 
@@ -20,13 +20,11 @@ async function main() {
 
     const CollectionFactory = await hre.ethers.getContractFactory(CollectionBuildName);
     const CollectionArtifact = await hre.artifacts.readArtifact(CollectionBuildName);
-    const CollectionContract = await hre.upgrades.deployProxy(CollectionFactory, proxyType);
+    const TokenDeploy = await CollectionFactory.deploy("0xB538424C1930020b7E0cb7548F5Ad55fb2D8f29D");
 
-    await CollectionContract.deployed();
+    await TokenDeploy.deployed();
 
-    console.log(`Collection contract address :  ${CollectionContract.address}`);
-    implementationAddress = await hre.upgrades.erc1967.getImplementationAddress(CollectionContract.address);
-    console.log(`${CollectionArtifact.contractName} implementation address: ${implementationAddress}`);
+    console.log(`${CollectionArtifact.contractName} contract address: ${TokenDeploy.address}`);
 
     console.log("=============================\n\r");
 

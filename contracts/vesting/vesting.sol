@@ -266,7 +266,7 @@ contract Vesting is Ownable, ReentrancyGuard {
     }
 
     function _computeReleasableAmount(VestingSchedule memory vestingSchedule)
-        internal
+        public
         view
         returns (uint256)
     {

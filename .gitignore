@@ -1,0 +1,30 @@
+#Hardhat files
+artifacts
+builds
+cache
+
+#secret file
+.secret.json
+
+#Node modules
+node_modules
+package-lock.json
+
+#Compiled files
+.flattened
+bin
+
+#.Env file
+.env
+
+#Remix compiler
+contracts/.deps
+
+#ABI files
+DFYHard721Factory_ABI.json
+HardEvaluation_ABI.json
+scripts/prelive/UserReview_ABI.json
+
+#Local upgrade address file
+.openzeppelin/unknown-31337.json
+scripts/live-4.1/.deployment_data copy.json
